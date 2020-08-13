@@ -29,12 +29,21 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
+  'docker' \
+  'node' \
   'editor' \
   'history' \
   'directory' \
   'spectrum' \
   'utility' \
   'completion' \
+  'homebrew' \
+  'osx' \
+  'git' \
+  'thefuck' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
@@ -111,6 +120,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'sorin'
+#zstyle ':prezto:module:prompt' theme 'spaceship'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
