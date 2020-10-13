@@ -41,24 +41,24 @@ eval "$(fasd --init auto)"
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set Spaceship ZSH as a prompt
-#SPACESHIP_PROMPT_ORDER=(user host dir git node docker exec_time line_sep jobs exit_code char)
-#SPACESHIP_CHAR_SYMBOL=⮀
-#SPACESHIP_CHAR_SUFFIX=\ 
-#autoload -U promptinit; promptinit
-#prompt spaceship
+SPACESHIP_PROMPT_ORDER=(user host dir git node docker venv exec_time line_sep jobs exit_code char)
+SPACESHIP_CHAR_SYMBOL=⮀
+SPACESHIP_CHAR_SUFFIX=\ 
+autoload -U promptinit; promptinit
+prompt spaceship
 
 # Better node repl
 # alias node="NODE_NO_READLINE=1 rlwrap -ppurple -S \"► \" node"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# [[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# [[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+# [[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 
 
