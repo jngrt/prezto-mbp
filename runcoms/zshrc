@@ -6,7 +6,7 @@
 #
 
 # profile
-# zmodload zsh/zprof
+#zmodload zsh/zprof
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -33,19 +33,17 @@ eval "$(fasd --init auto)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# When getting nvm errors on shell startup check:
-# https://github.com/nvm-sh/nvm/issues/1245
-# NVM config
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Set Spaceship ZSH as a prompt
 SPACESHIP_PROMPT_ORDER=(user host dir git node docker venv exec_time line_sep jobs exit_code char)
-SPACESHIP_CHAR_SYMBOL=⮀
-SPACESHIP_CHAR_SUFFIX=\ 
+#SPACESHIP_RPROMPT_ORDER=(time)
+#SPACESHIP_CHAR_SYMBOL=⮀
+SPACESHIP_CHAR_SYMBOL=♥
+SPACESHIP_CHAR_SUFFIX=\  
+#SPACESHIP_TIME_SHOW=true
 autoload -U promptinit; promptinit
 prompt spaceship
+
+#eval "$(starship init zsh)"
 
 # Better node repl
 # alias node="NODE_NO_READLINE=1 rlwrap -ppurple -S \"► \" node"
@@ -61,17 +59,38 @@ prompt spaceship
 # [[ -f /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jg/.nvm/versions/node/v10.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 
-
-# Digital ocean tool completion
-# source <(doctl completion zsh)
-
-
 alias f="fuck"
 eval $(thefuck --alias)
 
-  # Set Spaceship ZSH as a prompt
-  #autoload -U promptinit; promptinit
-  #prompt spaceship
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"
 
 
-# zprof
+# iterm darkmode toggle
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    sith() {
+        val=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+        if [[ $val == "Dark" ]]; then
+            i
+        fi
+    }
+
+    i() {
+        if [[ $ITERM_PROFILE == "Default" ]]; then
+            echo -ne "\033]50;SetProfile=Dark\a"
+            export ITERM_PROFILE="Dark"
+        else
+            echo -ne "\033]50;SetProfile=Default\a"
+            export ITERM_PROFILE="Default"
+        fi
+    }
+
+    sith
+fi
+
+#zprof
